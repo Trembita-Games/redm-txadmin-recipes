@@ -111,6 +111,14 @@ examples/   -> Example usage notes
 
 ---
 
+## References
+
+- [Official txAdmin Recipe Documentation](https://github.com/tabarra/txAdmin/blob/master/docs/recipe.md)
+- [Official txAdmin Recipes Repository](https://github.com/citizenfx/txAdmin-recipes)
+- [VORP txAdmin Recipe Reference](https://github.com/VORPCORE/VORP_txAdmin)
+
+---
+
 ## Current Status
 
 This repository is in the initial foundation phase.

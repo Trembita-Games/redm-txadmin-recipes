@@ -97,6 +97,19 @@ redm-server-data
 
 ---
 
+## Official References
+
+- [Official txAdmin Recipe Documentation](https://github.com/tabarra/txAdmin/blob/master/docs/recipe.md)
+- [Official txAdmin Recipes Repository](https://github.com/citizenfx/txAdmin-recipes)
+- [VORP txAdmin Recipe Reference](https://github.com/VORPCORE/VORP_txAdmin)
+
+Use the official txAdmin documentation as the primary source for supported recipe actions, placeholders and deployment
+behavior.
+
+Use existing community recipes only as references for structure and validation patterns.
+
+---
+
 ## Validation Checklist
 
 Before marking a recipe as stable:
