@@ -8,7 +8,7 @@
 
 $engine: 3
 $onesync: on
-$name: Trembita Games Vanilla RDR2
+$name: TrembitaRDR2
 $version: 0.1.1
 $author: Trembita Games
 $description: Minimal vanilla-first RedM/RDR2 server deployment recipe.
