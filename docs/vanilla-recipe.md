@@ -5,7 +5,7 @@ Documentation for the vanilla RedM/RDR2 txAdmin recipe.
 Recipe file:
 
 ```txt
-recipes/vanilla.yaml
+recipes/vanilla/recipe.yaml
 ```
 
 ---
@@ -14,15 +14,33 @@ recipes/vanilla.yaml
 
 The vanilla recipe is intended to deploy a minimal RedM/RDR2 server through txAdmin.
 
-It should provide:
+It provides:
 
 - basic RedM server configuration
 - default Cfx.re resources
 - `set gamename rdr3`
 - RedM session manager
 - txAdmin placeholders
-- minimal permissions configuration
+- shared permissions configuration
 - generated secrets configuration
+
+---
+
+## Recipe URL
+
+Using `main`:
+
+```txt
+https://raw.githubusercontent.com/Trembita-Games/redm-txadmin-recipes/main/recipes/vanilla/recipe.yaml
+```
+
+Using a release tag:
+
+```txt
+https://raw.githubusercontent.com/Trembita-Games/redm-txadmin-recipes/v0.1.5/recipes/vanilla/recipe.yaml
+```
+
+For stable deployments, prefer release tags.
 
 ---
 
@@ -46,13 +64,37 @@ permissions.cfg.example
 
 ---
 
+## Source Templates
+
+The vanilla recipe uses these templates:
+
+```txt
+templates/vanilla/server.cfg
+templates/common/permissions.cfg
+templates/common/secrets.cfg
+```
+
+### `templates/vanilla/server.cfg`
+
+Recipe-specific main server configuration.
+
+### `templates/common/permissions.cfg`
+
+Shared permissions configuration reused by multiple recipe variants.
+
+### `templates/common/secrets.cfg`
+
+Shared secrets configuration reused by multiple recipe variants.
+
+---
+
 ## Generated Configuration Files
 
 ### `server.cfg`
 
 Main server configuration.
 
-It contains:
+It contains txAdmin-generated values and executes shared generated files:
 
 ```cfg
 set gamename rdr3
@@ -68,7 +110,14 @@ exec secrets.cfg
 Base permission configuration generated from:
 
 ```txt
-templates/vanilla/permissions.cfg
+templates/common/permissions.cfg
+```
+
+Current content includes:
+
+```cfg
+add_ace group.admin command allow
+add_ace resource.mapmanager command allow
 ```
 
 ### `secrets.cfg`
@@ -76,7 +125,7 @@ templates/vanilla/permissions.cfg
 Deployment-specific secrets generated from:
 
 ```txt
-templates/vanilla/secrets.cfg
+templates/common/secrets.cfg
 ```
 
 It contains:
@@ -90,7 +139,15 @@ The Steam Web API key is provided through the recipe variable:
 
 ```yaml
 variables:
-  steam_webApiKey: "none"
+  steam_webApiKey: ""
+```
+
+The recipe must run variable replacement after generating `secrets.cfg`:
+
+```yaml
+- action: replace_string
+  mode: all_vars
+  file: ./secrets.cfg
 ```
 
 ---
@@ -102,6 +159,16 @@ variables:
 This recipe provides a txAdmin-first deployment workflow.
 
 Both should remain compatible, but they do not need to share identical file layout.
+
+Key difference:
+
+```txt
+redm-vanilla-template:
+  server.cfg -> exec local.cfg
+
+redm-txadmin-recipes:
+  server.cfg -> exec secrets.cfg
+```
 
 ---
 
@@ -138,9 +205,11 @@ Before marking this recipe as stable, validate:
 - `server.cfg` is generated
 - `permissions.cfg` is generated
 - `secrets.cfg` is generated
+- variables inside `secrets.cfg` are replaced
 - default resources are installed
 - server starts
 - RedM client can connect
 - no required config is missing
 - license key is correctly written as `sv_licenseKey "..."`
 - Steam Web API key is correctly written as `set steam_webApiKey "..."`
+- admin principals are generated correctly

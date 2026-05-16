@@ -31,7 +31,7 @@ It is not responsible for:
 
 - FXServer artifacts
 - default Cfx.re resource ownership
-- gameplay resources
+- gameplay resource implementation
 - RP frameworks
 - database schema ownership
 - server runtime state
@@ -65,29 +65,75 @@ This is intended for:
 
 ---
 
-## Recipes
+## Available Recipes
 
-Available recipes:
+### Vanilla Recipe
 
-- [Vanilla Recipe](docs/vanilla-recipe.md)
-- `recipes/vanilla.yaml`
-- `recipes/trembita.yaml`
-
-Current status:
+Path:
 
 ```txt
-Initial structure / not fully validated yet
+recipes/vanilla/recipe.yaml
+```
+
+Purpose:
+
+```txt
+Clean vanilla RedM/RDR2 deployment using upstream Cfx.re server data resources.
+```
+
+Raw URL format:
+
+```txt
+https://raw.githubusercontent.com/Trembita-Games/redm-txadmin-recipes/<tag-or-branch>/recipes/vanilla/recipe.yaml
+```
+
+Example using `main`:
+
+```txt
+https://raw.githubusercontent.com/Trembita-Games/redm-txadmin-recipes/main/recipes/vanilla/recipe.yaml
+```
+
+### Trembita Recipe
+
+Path:
+
+```txt
+recipes/trembita/recipe.yaml
+```
+
+Purpose:
+
+```txt
+Trembita Games deployment variant intended to use curated resources from redm-server-data.
+```
+
+Raw URL format:
+
+```txt
+https://raw.githubusercontent.com/Trembita-Games/redm-txadmin-recipes/<tag-or-branch>/recipes/trembita/recipe.yaml
+```
+
+Example using `main`:
+
+```txt
+https://raw.githubusercontent.com/Trembita-Games/redm-txadmin-recipes/main/recipes/trembita/recipe.yaml
 ```
 
 ---
 
-## Important Notice
+## Recommended Usage
 
-This repository does not vendor third-party resources.
+For testing, using `main` is acceptable.
 
-Recipes may reference external repositories or source archives, but this repository should not copy third-party source code directly.
+For stable deployments, prefer release tags.
 
-Default Cfx.re resources should remain sourced from upstream Cfx.re/CitizenFX sources.
+Example:
+
+```txt
+https://raw.githubusercontent.com/Trembita-Games/redm-txadmin-recipes/v0.1.5/recipes/vanilla/recipe.yaml
+```
+
+Using tags prevents deployments from unexpectedly changing when `main` changes.
 
 ---
 
@@ -99,6 +145,59 @@ recipes/    -> txAdmin recipe YAML files
 templates/  -> Server configuration templates used by recipes
 examples/   -> Example usage notes
 ```
+
+Current recipe/template layout:
+
+```txt
+recipes/
+├── vanilla/
+│   └── recipe.yaml
+└── trembita/
+    └── recipe.yaml
+
+templates/
+├── common/
+│   ├── permissions.cfg
+│   └── secrets.cfg
+├── vanilla/
+│   └── server.cfg
+└── trembita/
+    └── server.cfg
+```
+
+---
+
+## Template Strategy
+
+Shared configuration templates are stored in:
+
+```txt
+templates/common/
+```
+
+Recipe-specific server configuration templates are stored in:
+
+```txt
+templates/vanilla/
+templates/trembita/
+```
+
+This avoids duplicating identical files such as:
+
+```txt
+permissions.cfg
+secrets.cfg
+```
+
+---
+
+## Important Notice
+
+This repository does not vendor third-party resources.
+
+Recipes may reference external repositories or source archives, but this repository should not copy third-party source code directly.
+
+Default Cfx.re resources should remain sourced from upstream Cfx.re/CitizenFX sources unless a separate licensing and ownership decision is made.
 
 ---
 
@@ -121,9 +220,11 @@ examples/   -> Example usage notes
 
 ## Current Status
 
-This repository is in the initial foundation phase.
+This repository is in active recipe validation.
 
-The next step is to validate the `vanilla.yaml` recipe in a clean txAdmin deployment directory.
+The vanilla recipe is the first recipe being validated.
+
+The Trembita recipe is intended for future deployment with curated Trembita Games server data resources.
 
 ---
 

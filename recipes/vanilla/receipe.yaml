@@ -41,11 +41,11 @@ tasks:
     dest: ./server.cfg
 
   - action: move_path
-    src: ./temp/redm-txadmin-recipes/templates/vanilla/permissions.cfg
+    src: ./temp/redm-txadmin-recipes/templates/common/permissions.cfg
     dest: ./permissions.cfg
 
   - action: move_path
-    src: ./temp/redm-txadmin-recipes/templates/vanilla/secrets.cfg
+    src: ./temp/redm-txadmin-recipes/templates/common/secrets.cfg
     dest: ./secrets.cfg
 
   # Replace recipe variables inside the generated secrets file.
