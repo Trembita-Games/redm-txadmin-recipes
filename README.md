@@ -130,7 +130,7 @@ For stable deployments, prefer release tags.
 Example:
 
 ```txt
-https://raw.githubusercontent.com/Trembita-Games/redm-txadmin-recipes/v0.1.7/recipes/vanilla/recipe.yaml
+https://raw.githubusercontent.com/Trembita-Games/redm-txadmin-recipes/v0.1.8/recipes/vanilla/recipe.yaml
 ```
 
 Using tags prevents deployments from unexpectedly changing when `main` changes.

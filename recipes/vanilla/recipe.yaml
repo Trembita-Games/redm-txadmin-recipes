@@ -23,7 +23,7 @@ tasks:
   # Download this recipe repository to access templates.
   - action: download_github
     src: https://github.com/Trembita-Games/redm-txadmin-recipes
-    ref: v0.1.7
+    ref: v0.1.8
     dest: ./temp/redm-txadmin-recipes
 
   # Download default Cfx.re server data resources.
@@ -37,6 +37,10 @@ tasks:
   - action: move_path
     src: ./temp/redm-txadmin-recipes/templates/vanilla/server.cfg
     dest: ./server.cfg
+    
+  - action: move_path
+    src: ./temp/redm-txadmin-recipes/templates/common/resources.cfg
+    dest: ./resources.cfg
 
   - action: move_path
     src: ./temp/redm-txadmin-recipes/templates/common/permissions.cfg
