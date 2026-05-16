@@ -71,7 +71,7 @@ Available recipes:
 
 - [Vanilla Recipe](docs/vanilla-recipe.md)
 - `recipes/vanilla.yaml`
-- `recipes/vanilla-with-server-data.yaml`
+- `recipes/trembita.yaml`
 
 Current status:
 

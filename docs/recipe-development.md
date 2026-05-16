@@ -80,14 +80,14 @@ Current planned recipe variants:
 
 ```txt
 vanilla.yaml
-vanilla-with-server-data.yaml
+trembita.yaml
 ```
 
 ### `vanilla.yaml`
 
 Minimal RedM/RDR2 baseline deployment.
 
-### `vanilla-with-server-data.yaml`
+### `trembita.yaml`
 
 Future recipe variant that may include Trembita Games server data resources from:
 

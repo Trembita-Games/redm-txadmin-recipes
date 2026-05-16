@@ -1,0 +1,31 @@
+# Trembita Games RedM/RDR2 Vanilla txAdmin Recipe
+#
+# References:
+# - https://github.com/tabarra/txAdmin/blob/master/docs/recipe.md
+# - https://github.com/citizenfx/txAdmin-recipes
+#
+# Status:
+# Validation version.
+#
+# Purpose:
+# Deploy a minimal vanilla-first RedM/RDR2 server through txAdmin.
+
+$engine: 3
+$onesync: on
+$steamRequired: false
+
+name: Trembita-RDR2
+author: Trembita Games
+description: Trembita Games RedM/RDR2 recipe with curated server data resources
+
+variables:
+  steam_webApiKey: ""
+
+tasks:
+  - action: write_file
+    file: ./README.txt
+    content: |
+      This recipe is a placeholder.
+
+      The Trembita Games server data recipe will be implemented after
+      redm-server-data contains validated standalone resources.

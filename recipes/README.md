@@ -8,7 +8,7 @@ txAdmin recipe files.
 
 ```txt
 vanilla.yaml
-vanilla-with-server-data.yaml
+trembita.yaml
 ```
 
 ---

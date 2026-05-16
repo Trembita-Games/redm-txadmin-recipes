@@ -12,7 +12,7 @@ templates/
 │   ├── server.cfg
 │   ├── permissions.cfg
 │   └── secrets.cfg
-└── vanilla-with-server-data/
+└── trembita/
     ├── server.cfg
     └── permissions.cfg
 ```
