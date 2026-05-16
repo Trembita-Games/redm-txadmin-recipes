@@ -37,7 +37,7 @@ https://raw.githubusercontent.com/Trembita-Games/redm-txadmin-recipes/main/recip
 Using a release tag:
 
 ```txt
-https://raw.githubusercontent.com/Trembita-Games/redm-txadmin-recipes/v0.1.8/recipes/vanilla/recipe.yaml
+https://raw.githubusercontent.com/Trembita-Games/redm-txadmin-recipes/v0.1.9/recipes/vanilla/recipe.yaml
 ```
 
 For stable deployments, prefer release tags.

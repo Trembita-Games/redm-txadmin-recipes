@@ -13,7 +13,7 @@ $onesync: on
 $steamRequired: false
 
 name: Trembita-RDR2
-version: v0.1.8
+version: v0.1.9
 author: Trembita Games
 description: Trembita Games RedM/RDR2 txAdmin recipe with curated server data
 
@@ -24,7 +24,7 @@ tasks:
   # Download this recipe repository to access templates.
   - action: download_github
     src: https://github.com/Trembita-Games/redm-txadmin-recipes
-    ref: v0.1.8
+    ref: v0.1.9
     dest: ./temp/redm-txadmin-recipes
 
   # Download default Cfx.re server data resources.
