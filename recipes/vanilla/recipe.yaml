@@ -4,9 +4,6 @@
 # - https://github.com/tabarra/txAdmin/blob/master/docs/recipe.md
 # - https://github.com/citizenfx/txAdmin-recipes
 #
-# Status:
-# Validation version.
-#
 # Purpose:
 # Deploy a minimal vanilla-first RedM/RDR2 server through txAdmin.
 
@@ -25,7 +22,7 @@ tasks:
   # Download this recipe repository to access templates.
   - action: download_github
     src: https://github.com/Trembita-Games/redm-txadmin-recipes
-    ref: v0.1.6
+    ref: v0.1.7
     dest: ./temp/redm-txadmin-recipes
 
   # Download default Cfx.re server data resources.

@@ -209,7 +209,7 @@ Recipes should prefer stable release/tag URLs over moving `main` branch URLs whe
 Preferred:
 
 ```txt
-https://raw.githubusercontent.com/Trembita-Games/redm-txadmin-recipes/v0.1.6/recipes/vanilla/recipe.yaml
+https://raw.githubusercontent.com/Trembita-Games/redm-txadmin-recipes/v0.1.7/recipes/vanilla/recipe.yaml
 ```
 
 Avoid for stable deployments:
