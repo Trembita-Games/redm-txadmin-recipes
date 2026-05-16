@@ -13,6 +13,7 @@ $onesync: on
 $steamRequired: false
 
 name: Trembita-RDR2
+version: v0.1.8
 author: Trembita Games
 description: Trembita Games RedM/RDR2 txAdmin recipe with curated server data
 
