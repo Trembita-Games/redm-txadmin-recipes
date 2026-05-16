@@ -1,37 +1,38 @@
 # Trembita Games RedM/RDR2 Vanilla txAdmin Recipe
 #
 # Status:
-# Initial draft / not fully validated yet.
+# Validation version.
 #
 # Purpose:
 # Deploy a minimal vanilla-first RedM/RDR2 server through txAdmin.
 
 $engine: 3
+$onesync: on
 $name: Trembita Games Vanilla RDR2
-$version: 0.1.0
+$version: 0.1.1
 $author: Trembita Games
 $description: Minimal vanilla-first RedM/RDR2 server deployment recipe.
 
 tasks:
-  # This recipe is intentionally kept as a first draft.
-  # It should be validated against txAdmin before being marked as stable.
+  - action: download_file
+    url: https://github.com/citizenfx/cfx-server-data/archive/master.zip
+    path: ./tmp/cfx-server-data.zip
 
-  - action: download_github
-    src: https://github.com/citizenfx/cfx-server-data
-    ref: master
-    dest: ./tmp/cfx-server-data
+  - action: unzip
+    src: ./tmp/cfx-server-data.zip
+    dest: ./tmp
 
   - action: move_path
-    src: ./tmp/cfx-server-data/resources
+    src: ./tmp/cfx-server-data-master/resources
     dest: ./resources
 
   - action: remove_path
     path: ./tmp
 
-  - action: write_file
-    file: ./server.cfg
-    template: ../../templates/vanilla/server.cfg
+  - action: download_file
+    url: https://raw.githubusercontent.com/Trembita-Games/redm-txadmin-recipes/v0.1.1/templates/vanilla/server.cfg
+    path: ./server.cfg
 
-  - action: write_file
-    file: ./permissions.cfg
-    template: ../../templates/vanilla/permissions.cfg
+  - action: download_file
+    url: https://raw.githubusercontent.com/Trembita-Games/redm-txadmin-recipes/v0.1.1/templates/vanilla/permissions.cfg
+    path: ./permissions.cfg
