@@ -8,31 +8,35 @@
 
 $engine: 3
 $onesync: on
-$name: TrembitaRDR2
-$version: 0.1.1
-$author: Trembita Games
-$description: Minimal vanilla-first RedM/RDR2 server deployment recipe.
+$steamRequired: false
+
+name: Trembita-RDR2
+author: Trembita Games
+description: Minimal vanilla-first RedM/RDR2 server deployment recipe.
 
 tasks:
-  - action: download_file
-    url: https://github.com/citizenfx/cfx-server-data/archive/master.zip
-    path: ./tmp/cfx-server-data.zip
+  # Download this recipe repository to access templates.
+  - action: download_github
+    src: https://github.com/Trembita-Games/redm-txadmin-recipes
+    ref: v0.1.2
+    dest: ./temp/redm-txadmin-recipes
 
-  - action: unzip
-    src: ./tmp/cfx-server-data.zip
-    dest: ./tmp
-
-  - action: move_path
-    src: ./tmp/cfx-server-data-master/resources
+  # Download default Cfx.re server data resources.
+  - action: download_github
+    src: https://github.com/citizenfx/cfx-server-data
+    ref: master
+    subpath: resources
     dest: ./resources
 
+  # Move recipe-specific configuration templates to the server root.
+  - action: move_path
+    src: ./temp/redm-txadmin-recipes/templates/vanilla/server.cfg
+    dest: ./server.cfg
+
+  - action: move_path
+    src: ./temp/redm-txadmin-recipes/templates/vanilla/permissions.cfg
+    dest: ./permissions.cfg
+
+  # Clean up temporary files.
   - action: remove_path
-    path: ./tmp
-
-  - action: download_file
-    url: https://raw.githubusercontent.com/Trembita-Games/redm-txadmin-recipes/v0.1.1/templates/vanilla/server.cfg
-    path: ./server.cfg
-
-  - action: download_file
-    url: https://raw.githubusercontent.com/Trembita-Games/redm-txadmin-recipes/v0.1.1/templates/vanilla/permissions.cfg
-    path: ./permissions.cfg
+    path: ./temp
