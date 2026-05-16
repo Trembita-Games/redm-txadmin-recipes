@@ -1,0 +1,32 @@
+﻿# Runtime data
+txData/
+cache/
+server/
+resources/
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+tmp/
+temp/
+.tmp/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Archives
+*.zip
+*.7z
+*.rar
