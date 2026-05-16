@@ -16,16 +16,43 @@ $steamRequired: false
 
 name: Trembita-RDR2
 author: Trembita Games
-description: Trembita Games RedM/RDR2 recipe with curated server data resources
+description: Clean vanilla RedM/RDR2 txAdmin recipe
 
 variables:
   steam_webApiKey: ""
 
 tasks:
-  - action: write_file
-    file: ./README.txt
-    content: |
-      This recipe is a placeholder.
+  # Download this recipe repository to access templates.
+  - action: download_github
+    src: https://github.com/Trembita-Games/redm-txadmin-recipes
+    ref: v0.1.6
+    dest: ./temp/redm-txadmin-recipes
 
-      The Trembita Games server data recipe will be implemented after
-      redm-server-data contains validated standalone resources.
+  # Download default Cfx.re server data resources.
+  - action: download_github
+    src: https://github.com/citizenfx/cfx-server-data
+    ref: master
+    subpath: resources
+    dest: ./resources/
+
+  # Move recipe-specific configuration templates to the server root.
+  - action: move_path
+    src: ./temp/redm-txadmin-recipes/templates/vanilla/server.cfg
+    dest: ./server.cfg
+
+  - action: move_path
+    src: ./temp/redm-txadmin-recipes/templates/common/permissions.cfg
+    dest: ./permissions.cfg
+
+  - action: move_path
+    src: ./temp/redm-txadmin-recipes/templates/common/secrets.cfg
+    dest: ./secrets.cfg
+
+  # Replace recipe variables inside the generated secrets file.
+  - action: replace_string
+    mode: all_vars
+    file: ./secrets.cfg
+
+  # Clean up temporary files.
+  - action: remove_path
+    path: ./temp
