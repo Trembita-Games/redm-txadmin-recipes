@@ -1,4 +1,4 @@
-# Trembita Games RedM/RDR2 Vanilla txAdmin Recipe
+# Trembita Games RedM/RDR2 txAdmin Recipe
 #
 # References:
 # - https://github.com/tabarra/txAdmin/blob/master/docs/recipe.md
@@ -8,7 +8,8 @@
 # Validation version.
 #
 # Purpose:
-# Deploy a minimal vanilla-first RedM/RDR2 server through txAdmin.
+# Deploy a Trembita Games RedM/RDR2 server through txAdmin using
+# curated server data from Trembita-Games/redm-server-data.
 
 $engine: 3
 $onesync: on
@@ -16,7 +17,7 @@ $steamRequired: false
 
 name: Trembita-RDR2
 author: Trembita Games
-description: Clean vanilla RedM/RDR2 txAdmin recipe
+description: Trembita Games RedM/RDR2 txAdmin recipe with curated server data
 
 variables:
   steam_webApiKey: ""
@@ -28,16 +29,19 @@ tasks:
     ref: v0.1.6
     dest: ./temp/redm-txadmin-recipes
 
-  # Download default Cfx.re server data resources.
+  # Download Trembita Games curated server data resources.
+  #
+  # This repository is expected to provide a complete resources/ directory
+  # compatible with this recipe.
   - action: download_github
-    src: https://github.com/citizenfx/cfx-server-data
-    ref: master
+    src: https://github.com/Trembita-Games/redm-server-data
+    ref: v0.1.0
     subpath: resources
     dest: ./resources/
 
   # Move recipe-specific configuration templates to the server root.
   - action: move_path
-    src: ./temp/redm-txadmin-recipes/templates/vanilla/server.cfg
+    src: ./temp/redm-txadmin-recipes/templates/trembita/server.cfg
     dest: ./server.cfg
 
   - action: move_path
