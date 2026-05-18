@@ -1,8 +1,6 @@
-﻿# Runtime data
-txData/
+# Runtime cache
 cache/
-server/
-resources/
+txData/
 
 # Logs
 *.log
@@ -18,15 +16,27 @@ temp/
 Thumbs.db
 
 # IDE
-.idea/
 .vscode/
+
+# Rider / IntelliJ local files
+.idea/
 
 # Environment files
 .env
 .env.local
 .env.*.local
 
-# Archives
-*.zip
+# Node modules
+node_modules/
+
+# Lua temporary files
+*.luac
+
+# Build / distribution
+dist/
+build/
+artifacts/
+
+# Archives generated locally
 *.7z
 *.rar
